@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kolourpaint
-Version  : 19.04.0
-Release  : 6
-URL      : https://download.kde.org/stable/applications/19.04.0/src/kolourpaint-19.04.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.0/src/kolourpaint-19.04.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.0/src/kolourpaint-19.04.0.tar.xz.sig
+Version  : 19.04.1
+Release  : 7
+URL      : https://download.kde.org/stable/applications/19.04.1/src/kolourpaint-19.04.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.1/src/kolourpaint-19.04.1.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.1/src/kolourpaint-19.04.1.tar.xz.sig
 Summary  : Paint Program
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -55,6 +55,7 @@ Requires: kolourpaint-bin = %{version}-%{release}
 Requires: kolourpaint-data = %{version}-%{release}
 Provides: kolourpaint-devel = %{version}-%{release}
 Requires: kolourpaint = %{version}-%{release}
+Requires: kolourpaint = %{version}-%{release}
 
 %description dev
 dev components for the kolourpaint package.
@@ -95,14 +96,14 @@ locales components for the kolourpaint package.
 
 
 %prep
-%setup -q -n kolourpaint-19.04.0
+%setup -q -n kolourpaint-19.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557026032
+export SOURCE_DATE_EPOCH=1557450596
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -117,7 +118,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557026032
+export SOURCE_DATE_EPOCH=1557450596
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kolourpaint
 cp COPYING %{buildroot}/usr/share/package-licenses/kolourpaint/COPYING
