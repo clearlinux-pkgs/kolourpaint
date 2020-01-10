@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kolourpaint
-Version  : 19.12.0
-Release  : 14
-URL      : https://download.kde.org/stable/release-service/19.12.0/src/kolourpaint-19.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.0/src/kolourpaint-19.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.0/src/kolourpaint-19.12.0.tar.xz.sig
+Version  : 19.12.1
+Release  : 15
+URL      : https://download.kde.org/stable/release-service/19.12.1/src/kolourpaint-19.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.1/src/kolourpaint-19.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.1/src/kolourpaint-19.12.1.tar.xz.sig
 Summary  : Paint Program
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -96,15 +96,15 @@ locales components for the kolourpaint package.
 
 
 %prep
-%setup -q -n kolourpaint-19.12.0
-cd %{_builddir}/kolourpaint-19.12.0
+%setup -q -n kolourpaint-19.12.1
+cd %{_builddir}/kolourpaint-19.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576559180
+export SOURCE_DATE_EPOCH=1578677948
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -121,12 +121,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576559180
+export SOURCE_DATE_EPOCH=1578677948
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kolourpaint
-cp %{_builddir}/kolourpaint-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/kolourpaint/16f2f17f30faa850073c3ca39c4fbff4c53c3e71
-cp %{_builddir}/kolourpaint-19.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kolourpaint/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kolourpaint-19.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kolourpaint/c08668a6ace9b36ba46940609040748161b03a37
+cp %{_builddir}/kolourpaint-19.12.1/COPYING %{buildroot}/usr/share/package-licenses/kolourpaint/16f2f17f30faa850073c3ca39c4fbff4c53c3e71
+cp %{_builddir}/kolourpaint-19.12.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kolourpaint/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kolourpaint-19.12.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kolourpaint/c08668a6ace9b36ba46940609040748161b03a37
 pushd clr-build
 %make_install
 popd
