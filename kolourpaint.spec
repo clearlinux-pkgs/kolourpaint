@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kolourpaint
-Version  : 19.12.3
-Release  : 17
-URL      : https://download.kde.org/stable/release-service/19.12.3/src/kolourpaint-19.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.3/src/kolourpaint-19.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.3/src/kolourpaint-19.12.3.tar.xz.sig
+Version  : 20.04.0
+Release  : 18
+URL      : https://download.kde.org/stable/release-service/20.04.0/src/kolourpaint-20.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kolourpaint-20.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kolourpaint-20.04.0.tar.xz.sig
 Summary  : Paint Program
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -96,15 +96,15 @@ locales components for the kolourpaint package.
 
 
 %prep
-%setup -q -n kolourpaint-19.12.3
-cd %{_builddir}/kolourpaint-19.12.3
+%setup -q -n kolourpaint-20.04.0
+cd %{_builddir}/kolourpaint-20.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583452637
+export SOURCE_DATE_EPOCH=1587691440
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -121,12 +121,12 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583452637
+export SOURCE_DATE_EPOCH=1587691440
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kolourpaint
-cp %{_builddir}/kolourpaint-19.12.3/COPYING %{buildroot}/usr/share/package-licenses/kolourpaint/16f2f17f30faa850073c3ca39c4fbff4c53c3e71
-cp %{_builddir}/kolourpaint-19.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kolourpaint/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kolourpaint-19.12.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/kolourpaint/c08668a6ace9b36ba46940609040748161b03a37
+cp %{_builddir}/kolourpaint-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/kolourpaint/16f2f17f30faa850073c3ca39c4fbff4c53c3e71
+cp %{_builddir}/kolourpaint-20.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kolourpaint/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kolourpaint-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kolourpaint/c08668a6ace9b36ba46940609040748161b03a37
 pushd clr-build
 %make_install
 popd
@@ -237,20 +237,6 @@ popd
 /usr/share/kolourpaint/icons/hicolor/scalable/actions/tool_rounded_rectangle.svgz
 /usr/share/kolourpaint/icons/hicolor/scalable/actions/tool_spraycan.svgz
 /usr/share/kolourpaint/icons/hicolor/scalable/actions/tool_text.svgz
-/usr/share/kolourpaint/pics/color_transparent_26x26.png
-/usr/share/kolourpaint/pics/colorbutton_swap_16x16.png
-/usr/share/kolourpaint/pics/image_rotate_anticlockwise.png
-/usr/share/kolourpaint/pics/image_rotate_clockwise.png
-/usr/share/kolourpaint/pics/image_skew_horizontal.png
-/usr/share/kolourpaint/pics/image_skew_vertical.png
-/usr/share/kolourpaint/pics/option_opaque.png
-/usr/share/kolourpaint/pics/option_transparent.png
-/usr/share/kolourpaint/pics/resize.png
-/usr/share/kolourpaint/pics/scale.png
-/usr/share/kolourpaint/pics/smooth_scale.png
-/usr/share/kolourpaint/pics/tool_spraycan_17x17.png
-/usr/share/kolourpaint/pics/tool_spraycan_29x29.png
-/usr/share/kolourpaint/pics/tool_spraycan_9x9.png
 /usr/share/kxmlgui5/kolourpaint/kolourpaintui.rc
 /usr/share/metainfo/org.kde.kolourpaint.appdata.xml
 
