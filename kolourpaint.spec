@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kolourpaint
-Version  : 20.04.0
-Release  : 18
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/kolourpaint-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kolourpaint-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kolourpaint-20.04.0.tar.xz.sig
-Summary  : Paint Program
+Version  : 20.04.1
+Release  : 19
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/kolourpaint-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/kolourpaint-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/kolourpaint-20.04.1.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
 Requires: kolourpaint-bin = %{version}-%{release}
@@ -20,6 +20,7 @@ Requires: kolourpaint-license = %{version}-%{release}
 Requires: kolourpaint-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
 BuildRequires : libksane-dev
 
 %description
@@ -54,7 +55,6 @@ Requires: kolourpaint-lib = %{version}-%{release}
 Requires: kolourpaint-bin = %{version}-%{release}
 Requires: kolourpaint-data = %{version}-%{release}
 Provides: kolourpaint-devel = %{version}-%{release}
-Requires: kolourpaint = %{version}-%{release}
 Requires: kolourpaint = %{version}-%{release}
 
 %description dev
@@ -96,37 +96,36 @@ locales components for the kolourpaint package.
 
 
 %prep
-%setup -q -n kolourpaint-20.04.0
-cd %{_builddir}/kolourpaint-20.04.0
+%setup -q -n kolourpaint-20.04.1
+cd %{_builddir}/kolourpaint-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587691440
+export SOURCE_DATE_EPOCH=1589841376
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587691440
+export SOURCE_DATE_EPOCH=1589841376
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kolourpaint
-cp %{_builddir}/kolourpaint-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/kolourpaint/16f2f17f30faa850073c3ca39c4fbff4c53c3e71
-cp %{_builddir}/kolourpaint-20.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kolourpaint/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kolourpaint-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kolourpaint/c08668a6ace9b36ba46940609040748161b03a37
+cp %{_builddir}/kolourpaint-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/kolourpaint/16f2f17f30faa850073c3ca39c4fbff4c53c3e71
+cp %{_builddir}/kolourpaint-20.04.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kolourpaint/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kolourpaint-20.04.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kolourpaint/c08668a6ace9b36ba46940609040748161b03a37
 pushd clr-build
 %make_install
 popd
