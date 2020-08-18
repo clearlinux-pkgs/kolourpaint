@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kolourpaint
-Version  : 20.04.2
-Release  : 20
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/kolourpaint-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/kolourpaint-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/kolourpaint-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 21
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/kolourpaint-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/kolourpaint-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/kolourpaint-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -96,15 +96,15 @@ locales components for the kolourpaint package.
 
 
 %prep
-%setup -q -n kolourpaint-20.04.2
-cd %{_builddir}/kolourpaint-20.04.2
+%setup -q -n kolourpaint-20.08.0
+cd %{_builddir}/kolourpaint-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591896620
+export SOURCE_DATE_EPOCH=1597790616
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -116,16 +116,16 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591896620
+export SOURCE_DATE_EPOCH=1597790616
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kolourpaint
-cp %{_builddir}/kolourpaint-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/kolourpaint/16f2f17f30faa850073c3ca39c4fbff4c53c3e71
-cp %{_builddir}/kolourpaint-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kolourpaint/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kolourpaint-20.04.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/kolourpaint/c08668a6ace9b36ba46940609040748161b03a37
+cp %{_builddir}/kolourpaint-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/kolourpaint/16f2f17f30faa850073c3ca39c4fbff4c53c3e71
+cp %{_builddir}/kolourpaint-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kolourpaint/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kolourpaint-20.08.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/kolourpaint/c08668a6ace9b36ba46940609040748161b03a37
 pushd clr-build
 %make_install
 popd
@@ -141,6 +141,7 @@ popd
 %files data
 %defattr(-,root,root,-)
 /usr/share/applications/org.kde.kolourpaint.desktop
+/usr/share/icons/hicolor/128x128/apps/kolourpaint.png
 /usr/share/icons/hicolor/16x16/apps/kolourpaint.png
 /usr/share/icons/hicolor/22x22/apps/kolourpaint.png
 /usr/share/icons/hicolor/32x32/apps/kolourpaint.png
@@ -246,13 +247,6 @@ popd
 %files doc
 %defattr(0644,root,root,0755)
 /usr/share/doc/HTML/ca/kolourpaint/KolourPaint.png
-/usr/share/doc/HTML/ca/kolourpaint/brush_shapes.png
-/usr/share/doc/HTML/ca/kolourpaint/color_box.png
-/usr/share/doc/HTML/ca/kolourpaint/eraser_shapes.png
-/usr/share/doc/HTML/ca/kolourpaint/fcc_std_text.png
-/usr/share/doc/HTML/ca/kolourpaint/fcc_trans_text.png
-/usr/share/doc/HTML/ca/kolourpaint/fill_color_similarity.png
-/usr/share/doc/HTML/ca/kolourpaint/fill_style.png
 /usr/share/doc/HTML/ca/kolourpaint/image_balance.png
 /usr/share/doc/HTML/ca/kolourpaint/image_emboss.png
 /usr/share/doc/HTML/ca/kolourpaint/image_flatten.png
@@ -264,36 +258,6 @@ popd
 /usr/share/doc/HTML/ca/kolourpaint/image_soften_sharpen.png
 /usr/share/doc/HTML/ca/kolourpaint/index.cache.bz2
 /usr/share/doc/HTML/ca/kolourpaint/index.docbook
-/usr/share/doc/HTML/ca/kolourpaint/line_width.png
-/usr/share/doc/HTML/ca/kolourpaint/lines_30_45_deg.png
-/usr/share/doc/HTML/ca/kolourpaint/lines_30_deg.png
-/usr/share/doc/HTML/ca/kolourpaint/lines_45_deg.png
-/usr/share/doc/HTML/ca/kolourpaint/rotate_image_30.png
-/usr/share/doc/HTML/ca/kolourpaint/rotate_selection_30.png
-/usr/share/doc/HTML/ca/kolourpaint/selections_opaque_transparent.png
-/usr/share/doc/HTML/ca/kolourpaint/spraycan_patterns.png
-/usr/share/doc/HTML/ca/kolourpaint/text_zoom_grid.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_brush.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_color_picker.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_color_washer.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_curve.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_ellipse.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_elliptical_selection.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_eraser.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_flood_fill.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_free_form_selection.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_line.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_pen.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_polygon.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_polyline.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_polystar.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_rect_selection.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_rectangle.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_rectangles.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_rounded_rectangle.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_selections.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_spraycan.png
-/usr/share/doc/HTML/ca/kolourpaint/tool_text.png
 /usr/share/doc/HTML/de/kolourpaint/KolourPaint.png
 /usr/share/doc/HTML/de/kolourpaint/image_balance.png
 /usr/share/doc/HTML/de/kolourpaint/image_emboss.png
